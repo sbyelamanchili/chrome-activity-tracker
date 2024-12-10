@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Activity Tracker</title>
+  <style>
+    body {
+      width: 500px;
+      padding: 20px;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .category-section {
+      margin-bottom: 25px;
+    }
+    .category-header {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .category-name {
+      font-size: 14px;
+    }
+    .category-total {
+      font-size: 12px;
+      color: #666;
+    }
+    .activity-bar {
+      height: 30px;
+      background-color: #f0f0f0;
+      border-radius: 15px;
+      overflow: visible;
+      position: relative;
+      display: flex;
+      margin-top: 10px;
+    }
+    .subcategory-segment {
+      height: 100%;
+      transition: width 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+    /* Add rounded corners to first and last segments */
+    .subcategory-segment:first-child {
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+    .subcategory-segment:last-child {
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    .tooltip {
+      visibility: hidden;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 1000;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: visibility 0s, opacity 0.3s;
+      opacity: 0;
+    }
+    .subcategory-segment:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    .tooltip:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+    }
+    /* Category-specific colors with subcategory variations - lighter and brighter */
+    .social-facebook { background-color: #7FB3FF; }
+    .social-twitter { background-color: #71C9FF; }
+    .social-instagram { background-color: #FF9ECD; }
+    .social-linkedin { background-color: #64B9FF; }
+    .social-reddit { background-color: #FFA07A; }
+    
+    .productivity-github { background-color: #9BA4AE; }
+    .productivity-gitlab { background-color: #FFD280; }
+    .productivity-stackoverflow { background-color: #FFB366; }
+    .productivity-google { background-color: #8EB7FF; }
+    
+    .entertainment-youtube { background-color: #FF8080; }
+    .entertainment-netflix { background-color: #FF7A7A; }
+    .entertainment-spotify { background-color: #85F5B3; }
+    .entertainment-twitch { background-color: #C6A5FF; }
+    
+    .news-bbc { background-color: #FF9999; }
+    .news-cnn { background-color: #FF8585; }
+    .news-nytimes { background-color: #B3B3B3; }
+    .news-guardian { background-color: #80B3FF; }
+    
+    .shopping-amazon { background-color: #FFD699; }
+    .shopping-ebay { background-color: #FF9999; }
+    .shopping-walmart { background-color: #80B3FF; }
+    .shopping-etsy { background-color: #FFB380; }
+    
+    .other { background-color: #C9CBCF; }
+    .tab-counter {
+      text-align: center;
+      padding: 15px;
+      margin: 0 10px 20px 10px;
+      background: white;
+      border-radius: 12px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .tab-counter:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .tab-counter .emoji {
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+    .tab-counter:hover .emoji {
+      transform: scale(1.2);
+    }
+    .tab-counter .count-text {
+      font-weight: 500;
+      color: #2c3e50;
+    }
+    .tab-counter.many-tabs {
+      background: #fff5f5;
+      border: 1px solid #fed7d7;
+    }
+    .tab-counter.many-tabs .count-text {
+      color: #e53e3e;
+    }
+    .tab-counter.few-tabs {
+      background: #f0fff4;
+      border: 1px solid #c6f6d5;
+    }
+    .tab-counter.few-tabs .count-text {
+      color: #38a169;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Activity Summary</h1>
+  <div id="tabCounter" class="tab-counter"></div>
+  <div id="noDataMessage">No activity recorded yet. Start browsing to see your activity summary!</div>
+  <div id="activityStats"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
