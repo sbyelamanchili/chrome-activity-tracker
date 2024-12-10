@@ -8,8 +8,9 @@
       width: 500px;
       padding: 20px;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: #f8f9fa;
+      background: linear-gradient(135deg, #f6f8fc 0%, #e9f0f8 100%);
       margin: 0;
+      min-height: 400px;
     }
     h1 {
       text-align: center;
@@ -17,43 +18,117 @@
       margin-bottom: 20px;
       font-size: 20px;
       font-weight: 600;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
+      border-radius: 2px;
+    }
+    .tab-counter {
+      text-align: center;
+      padding: 15px;
+      margin: 0 10px 20px 10px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .tab-counter:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    .tab-counter .emoji {
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+    .tab-counter:hover .emoji {
+      transform: scale(1.2) rotate(5deg);
+    }
+    .tab-counter .count-text {
+      font-weight: 600;
+      color: #2c3e50;
+      letter-spacing: 0.3px;
+    }
+    .tab-counter.many-tabs {
+      background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+      border: 1px solid #fed7d7;
+    }
+    .tab-counter.many-tabs .count-text {
+      color: #e53e3e;
+    }
+    .tab-counter.few-tabs {
+      background: linear-gradient(135deg, #f0fff4 0%, #ebfff0 100%);
+      border: 1px solid #c6f6d5;
+    }
+    .tab-counter.few-tabs .count-text {
+      color: #38a169;
     }
     .category-section {
-      margin-bottom: 25px;
+      background: rgba(255, 255, 255, 0.9);
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      transition: transform 0.3s ease;
+    }
+    .category-section:hover {
+      transform: translateY(-2px);
     }
     .category-header {
       font-weight: bold;
-      color: #333;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
-      border-bottom: 2px solid #eee;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #edf2f7;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .category-name {
-      font-size: 14px;
+      font-size: 15px;
+      font-weight: 600;
     }
     .category-total {
-      font-size: 12px;
-      color: #666;
+      font-size: 13px;
+      color: #718096;
+      font-weight: 500;
     }
     .activity-bar {
       height: 30px;
-      background-color: #f0f0f0;
+      background-color: #edf2f7;
       border-radius: 15px;
       overflow: visible;
       position: relative;
       display: flex;
       margin-top: 10px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
     }
     .subcategory-segment {
       height: 100%;
-      transition: width 0.3s ease;
+      transition: all 0.3s ease;
       position: relative;
       cursor: pointer;
     }
-    /* Add rounded corners to first and last segments */
+    .subcategory-segment:hover {
+      transform: scaleY(1.1);
+    }
     .subcategory-segment:first-child {
       border-top-left-radius: 15px;
       border-bottom-left-radius: 15px;
@@ -65,22 +140,20 @@
     .tooltip {
       visibility: hidden;
       position: absolute;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       color: white;
-      padding: 5px 10px;
-      border-radius: 4px;
+      padding: 8px 12px;
+      border-radius: 8px;
       font-size: 12px;
+      font-weight: 500;
       white-space: nowrap;
       z-index: 1000;
       bottom: 120%;
       left: 50%;
       transform: translateX(-50%);
-      transition: visibility 0s, opacity 0.3s;
+      transition: all 0.2s ease;
       opacity: 0;
-    }
-    .subcategory-segment:hover .tooltip {
-      visibility: visible;
-      opacity: 1;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
     .tooltip:after {
       content: '';
@@ -90,79 +163,53 @@
       margin-left: -5px;
       border-width: 5px;
       border-style: solid;
-      border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+      border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
     }
-    /* Category-specific colors with subcategory variations - lighter and brighter */
-    .social-facebook { background-color: #7FB3FF; }
-    .social-twitter { background-color: #71C9FF; }
-    .social-instagram { background-color: #FF9ECD; }
-    .social-linkedin { background-color: #64B9FF; }
-    .social-reddit { background-color: #FFA07A; }
-    
-    .productivity-github { background-color: #9BA4AE; }
-    .productivity-gitlab { background-color: #FFD280; }
-    .productivity-stackoverflow { background-color: #FFB366; }
-    .productivity-google { background-color: #8EB7FF; }
-    
-    .entertainment-youtube { background-color: #FF8080; }
-    .entertainment-netflix { background-color: #FF7A7A; }
-    .entertainment-spotify { background-color: #85F5B3; }
-    .entertainment-twitch { background-color: #C6A5FF; }
-    
-    .news-bbc { background-color: #FF9999; }
-    .news-cnn { background-color: #FF8585; }
-    .news-nytimes { background-color: #B3B3B3; }
-    .news-guardian { background-color: #80B3FF; }
-    
-    .shopping-amazon { background-color: #FFD699; }
-    .shopping-ebay { background-color: #FF9999; }
-    .shopping-walmart { background-color: #80B3FF; }
-    .shopping-etsy { background-color: #FFB380; }
-    
-    .other { background-color: #C9CBCF; }
-    .tab-counter {
+    .subcategory-segment:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(-5px);
+    }
+    #noDataMessage {
       text-align: center;
-      padding: 15px;
-      margin: 0 10px 20px 10px;
-      background: white;
-      border-radius: 12px;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-    }
-    .tab-counter:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .tab-counter .emoji {
-      font-size: 24px;
-      transition: transform 0.3s ease;
-    }
-    .tab-counter:hover .emoji {
-      transform: scale(1.2);
-    }
-    .tab-counter .count-text {
+      color: #718096;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      margin: 20px 10px;
+      font-size: 14px;
       font-weight: 500;
-      color: #2c3e50;
     }
-    .tab-counter.many-tabs {
-      background: #fff5f5;
-      border: 1px solid #fed7d7;
-    }
-    .tab-counter.many-tabs .count-text {
-      color: #e53e3e;
-    }
-    .tab-counter.few-tabs {
-      background: #f0fff4;
-      border: 1px solid #c6f6d5;
-    }
-    .tab-counter.few-tabs .count-text {
-      color: #38a169;
-    }
+    
+    /* Category-specific colors with subcategory variations - lighter and brighter */
+    .social-facebook { background: linear-gradient(45deg, #7FB3FF, #6FA3FF); }
+    .social-twitter { background: linear-gradient(45deg, #71C9FF, #61B9FF); }
+    .social-instagram { background: linear-gradient(45deg, #FF9ECD, #FF8EBD); }
+    .social-linkedin { background: linear-gradient(45deg, #64B9FF, #54A9FF); }
+    .social-reddit { background: linear-gradient(45deg, #FFA07A, #FF906A); }
+    
+    .productivity-github { background: linear-gradient(45deg, #9BA4AE, #8B949E); }
+    .productivity-gitlab { background: linear-gradient(45deg, #FFD280, #FFC270); }
+    .productivity-stackoverflow { background: linear-gradient(45deg, #FFB366, #FFA356); }
+    .productivity-google { background: linear-gradient(45deg, #8EB7FF, #7EA7FF); }
+    
+    .entertainment-youtube { background: linear-gradient(45deg, #FF8080, #FF7070); }
+    .entertainment-netflix { background: linear-gradient(45deg, #FF7A7A, #FF6A6A); }
+    .entertainment-spotify { background: linear-gradient(45deg, #85F5B3, #75E5A3); }
+    .entertainment-twitch { background: linear-gradient(45deg, #C6A5FF, #B695FF); }
+    
+    .news-bbc { background: linear-gradient(45deg, #FF9999, #FF8989); }
+    .news-cnn { background: linear-gradient(45deg, #FF8585, #FF7575); }
+    .news-nytimes { background: linear-gradient(45deg, #B3B3B3, #A3A3A3); }
+    .news-guardian { background: linear-gradient(45deg, #80B3FF, #70A3FF); }
+    
+    .shopping-amazon { background: linear-gradient(45deg, #FFD699, #FFC689); }
+    .shopping-ebay { background: linear-gradient(45deg, #FF9999, #FF8989); }
+    .shopping-walmart { background: linear-gradient(45deg, #80B3FF, #70A3FF); }
+    .shopping-etsy { background: linear-gradient(45deg, #FFB380, #FFA370); }
   </style>
 </head>
 <body>
