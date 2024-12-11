@@ -1,27 +1,32 @@
 {
   "manifest_version": 3,
-  "name": "Activity Tracker",
-  "version": "1.0",
-  "description": "Track and categorize Chrome browsing activities",
-  "permissions": [
-    "tabs",
-    "storage",
-    "activeTab",
-    "history"
-  ],
-  "background": {
-    "service_worker": "background.js"
+  "name": "Activity Time Tracker & Productivity Analytics",
+  "short_name": "Activity Tracker",
+  "version": "1.0.0",
+  "description": "Track and visualize your browsing habits with beautiful analytics. Monitor time spent on social media, work, entertainment & more. Boost productivity with insights.",
+  "author": "Your Name",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icons/icon16.png"
-    }
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Activity Time Tracker"
   },
-  "icons": {
-    "16": "icons/icon16.png"
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
   },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
-  }
+  "homepage_url": "https://github.com/yourusername/activity-tracker",
+  "offline_enabled": true
 }

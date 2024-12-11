@@ -1,36 +1,60 @@
-# Chrome Activity Tracker
+# Activity Time Tracker & Productivity Analytics
 
-A Chrome extension that tracks your browsing activities and displays them in a pie chart.
+Track and visualize your browsing habits with beautiful analytics. Monitor time spent on social media, work, entertainment & more. Boost your productivity with real-time insights.
 
-## Features
+## 🌟 Features
 
-- Tracks websites visited during your browsing session
-- Categorizes websites into different categories (social, productivity, entertainment, etc.)
-- Displays activity summary in an interactive pie chart
-- Automatically resets at midnight
+- **Real-time Activity Tracking**: Automatically tracks and categorizes your browsing activities
+- **Beautiful Visualizations**: Modern, interactive charts showing your time distribution
+- **Smart Categorization**: Intelligently categorizes websites into:
+  - 💼 Productivity (Work, Learning)
+  - 🎮 Entertainment
+  - 📱 Social Media
+  - 📰 News
+  - 🛍️ Shopping
+  - More categories...
 
-## Installation
+## 🔒 Privacy & Security
 
-1. Open Chrome and go to `chrome://extensions/`
-2. Enable "Developer mode" in the top right corner
-3. Click "Load unpacked" and select the extension directory
-4. The extension icon should appear in your Chrome toolbar
+- No data collection
+- Works offline
+- No account required
+- Local storage only
+- Open source
 
-## Usage
+## 🚀 Getting Started
 
-1. Click on the extension icon in your Chrome toolbar to see your activity summary
-2. The pie chart shows the distribution of your browsing activity across different categories
-3. Hover over chart segments to see detailed percentages and visit counts
+1. Install the extension from Chrome Web Store
+2. Start browsing normally
+3. Click the extension icon to see your analytics
+4. Monitor your productivity trends
+5. Make informed decisions about your browsing habits
 
-## Categories
+## 💡 Use Cases
 
-- Social: Facebook, Twitter, Instagram, LinkedIn
-- Productivity: GitHub, GitLab, Google Docs, Notion
-- Entertainment: YouTube, Netflix, Spotify, Twitch
-- News: Google News, Reuters, BBC, CNN
-- Shopping: Amazon, eBay, Walmart, Etsy
-- Other: All other websites
+- Track work vs. leisure time
+- Monitor social media usage
+- Analyze productivity patterns
+- Manage tab overload
+- Improve digital wellbeing
 
-## Note
+## 📈 Coming Soon
 
-You'll need to add icons (16x16, 48x48, and 128x128 pixels) in the icons directory before loading the extension.
+- Custom categories
+- Export data functionality
+- Productivity goals
+- Focus timer
+- Website blocking
+- Detailed analytics
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📝 License
+
+MIT License - see LICENSE for details.
+
+---
+
+**Keywords**: productivity tracker, time management, website analytics, browsing habits, activity monitor, chrome extension, productivity tool, time tracking, website usage, digital wellbeing, screen time, tab management
